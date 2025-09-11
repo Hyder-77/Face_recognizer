@@ -6,7 +6,7 @@ trained_model= cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fronta
 capture = cv2.VideoCapture(0)
 
 def insert_update(id,name,age):
-    connection= sq.connect("E:/mL/opencv/sql4.db")
+    connection= sq.connect("Enter your database file location here /sql4.db")
     cmd ="SELECT * FROM  STUDENTS WHERE ID="+str(id)+";"
     cursor= connection.execute(cmd)
     record_bool=0
