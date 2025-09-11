@@ -4,9 +4,9 @@ import sqlite3 as sq
 trained_model= cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 capture = cv2.VideoCapture(0)
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read("E:/mL/opencv/face_recognizer/recognizer/training_data.yml")
+recognizer.read("Enter your trained data file location here/training_data.yml")
 def get_profile(id):
-    connection= sq.connect("E:/mL/opencv/face_recognizer/sql4.db")
+    connection= sq.connect("Enter your database file location here/sql4.db")
     cmd ="SELECT * FROM  STUDENTS WHERE ID="+str(id)+";"
     cursor= connection.execute(cmd)
     profile =None
