@@ -6,7 +6,7 @@ trained_model= cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fronta
 capture = cv2.VideoCapture(0)
 
 def insert_update(id,name,age):
-    connection = sq.connect("E:/mL/opencv/face_recognizer/sql4.db")
+    connection = sq.connect("enter your db file location here")
     cursor = connection.execute("SELECT * FROM STUDENTS WHERE ID=?", (id,))
     record = cursor.fetchone()
     if record:
@@ -34,7 +34,7 @@ while True :
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,200,0),2)
         sample_no+=1
         face= gray[y:y+h,x:x+w]
-        cv2.imwrite("E:/mL/opencv/face_recognizer/data/user."+str(id)+"."+str(sample_no)+".jpg",face)
+        cv2.imwrite("enter your desired file location here."+str(id)+"."+str(sample_no)+".jpg",face)
         cv2.waitKey(150)
     cv2.imshow("sampling",frame)
     cv2.waitKey(1)
