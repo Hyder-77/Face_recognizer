@@ -6,16 +6,13 @@ trained_model= cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fronta
 capture = cv2.VideoCapture(0)
 
 def insert_update(id,name,age):
-    connection= sq.connect("E:/mL/opencv/sql4.db")
-    cmd ="SELECT * FROM  STUDENTS WHERE ID="+str(id)+";"
-    cursor= connection.execute(cmd)
-    record_bool=0
-    for row in cursor:
-        record_bool=1
-        if record_bool==1:
-          connection.execute("UPDATE STUDENTS SET NAME=?,AGE=? WHERE ID=?",(name,age,id))
-        else:
-           connection.execute("INSERT INTO STUDENTS (ID,NAME,AGE) VALUES(?,?,?)",(id,name,age))
+    connection = sq.connect("E:/mL/opencv/face_recognizer/sql4.db")
+    cursor = connection.execute("SELECT * FROM STUDENTS WHERE ID=?", (id,))
+    record = cursor.fetchone()
+    if record:
+        connection.execute("UPDATE STUDENTS SET NAME=?, AGE=? WHERE ID=?", (name, age, id))
+    else:
+        connection.execute("INSERT INTO STUDENTS (ID, NAME, AGE) VALUES (?, ?, ?)", (id, name, age))
     connection.commit()
     connection.close()
 #user input
