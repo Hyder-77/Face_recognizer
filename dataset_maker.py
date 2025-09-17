@@ -15,7 +15,6 @@ def insert_update(id,name,age):
         connection.execute("INSERT INTO STUDENTS (ID, NAME, AGE) VALUES (?, ?, ?)", (id, name, age))
     connection.commit()
     connection.close()
-#user input
 id=input("enter id:")
 name=input("enter name:")
 age=input("enter age:")

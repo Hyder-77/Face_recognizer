@@ -5,7 +5,7 @@ trained_model= cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fronta
 capture = cv2.VideoCapture(0)
 
 def insert_update(id, name, age):
-    connection = sq.connect("E:/mL/opencv/face_recognizer/sql4.db")
+    connection = sq.connect("Enter your database file location here/sql4.db")
     cursor = connection.execute("SELECT * FROM STUDENTS WHERE ID=?", (id,))
     record = cursor.fetchone()
     if record:
@@ -14,9 +14,9 @@ def insert_update(id, name, age):
         connection.execute("INSERT INTO STUDENTS (ID, NAME, AGE) VALUES (?, ?, ?)", (id, name, age))
     connection.commit()
     connection.close()
-input_folder = "E:/mL/opencv/face_recognizer/source_images/75"
+input_folder = "Enter your image file location here"
 
-output_folder = "E:/mL/opencv/face_recognizer/data"
+output_folder = "Enter your output file location here"
 os.makedirs(output_folder, exist_ok=True)
 
 trained_model = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")

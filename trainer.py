@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 from PIL import Image as img
 
-recognizer = cv2.face.LBPHFaceRecognizer_create() #Local Binary Patterns Histograms (LBPH) face recognizer
-path="E:/mL/opencv/face_recognizer/data"
+recognizer = cv2.face.LBPHFaceRecognizer_create()
+path="Enter your images file location here"
 def get_img(path):
     image_paths=[os.path.join(path,f) for f in os.listdir(path)]
     faces=[]
@@ -12,9 +12,7 @@ def get_img(path):
     for paths in image_paths:
         face_img=img.open(paths).convert('L')
         face_np=np.array(face_img,'uint8')
-        id= int (os.path.split(paths)[-1].split(".")[1])   #"E:/mL/opencv/face_recognizer/datadata/user.1.3.jpg",os.path.split(paths) returns ('E:/mL/opencv/face_recognizer/datadata', 'user.1.3.jpg'). os.path.split(paths)
-        #[-1]Gets the last element of the tuple, which is the filename:'user.1.3.jpg'.split(".")
-        # #Splits the filename by the period (.) character:'user.1.3.jpg'.split(".") gives ['user', '1', '3', 'jpg'][1]Gets the second element (index 1) from the split list:'1' (which is the ID in your filename format)
+        id= int (os.path.split(paths)[-1].split(".")[1])  
         print(id)
         faces.append(face_np)
         ids.append(id)
@@ -23,5 +21,5 @@ def get_img(path):
     return np.array(ids),faces
 ids,faces=get_img(path)
 recognizer.train(faces,ids)
-recognizer.save("E:/mL/opencv/face_recognizer/recognizer/training_data.yml")
+recognizer.save("Enter your destination file where you want to saved the trained output file, location here")
 cv2.destroyAllWindows()

@@ -6,15 +6,15 @@ This project is a complete pipeline for face recognition using OpenCV's Haar Cas
 
 ## 📁 Project Structure
 
-face_recognizer/ 
-├── data/ # Stores cropped face images 
-├── source_images/ # Folder for still image dataset input 
-├── recognizer/ # Stores trained model (.yml) 
-├── sql4.db # SQLite database for storing user profiles
-├── dataset_maker.py # Capture face samples via webcam
-├── dataset_from_images.py # Create dataset from still images 
-├── train_model.py # Train LBPH model 
-└── face_recognizer.py # Real-time face recognition
+face_recognizer <br>
+├── data -> Stores cropped face images  <br>
+├── source_images ->Folder for still image dataset input   <br>
+├── recognizer-> Stores trained model (.yml)  <br>
+├── sql4.db -> SQLite database for storing user profiles <br>
+├── dataset_maker.py -> Capture face samples via webcam <br>
+├── dataset_from_images.py -> Create dataset from still images <br>
+├── train_model.py -> Train LBPH model  <br>
+└── face_recognizer.py -> Real-time face recognition <br>
 
 
 ---
@@ -36,18 +36,18 @@ face_recognizer/
 ```bash
 pip install opencv-python numpy pillow
 
- 2. Create Dataset via Webcam
+ 1. Create Dataset via Webcam
 python dataset_maker.py
 
- 3. Create Dataset from Still Images
+ 2. Create Dataset from Still Images
 Place images in source_images/<user_id>/ and run:
 python dataset_from_images.py
 
-4. Train the Model
+3. Train the Model
 
 python train_model.py
 
-5. Run Face Recognition
+4. Run Face Recognition
 Press q to exit the recognition window.
 
 ## 🗃️ Database Schema
@@ -55,7 +55,7 @@ SQLite table: STUDENTS
 
 Column  	Type	  Description
 ID	       INTEGER	  Unique user ID
-NAME	    TEXT	   User's name
+NAME	      TEXT	      User's name
 AGE	      INTEGER	   User's age
 
 ##🛠️ Technologies Used
