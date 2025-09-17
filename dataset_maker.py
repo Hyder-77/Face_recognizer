@@ -6,7 +6,7 @@ trained_model= cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fronta
 capture = cv2.VideoCapture(0)
 
 def insert_update(id,name,age):
-    connection = sq.connect("E:/mL/opencv/face_recognizer/sql4.db")
+        git pull origin mainconnection = sq.connect("E:/mL/opencv/face_recognizer/sql4.db")
     cursor = connection.execute("SELECT * FROM STUDENTS WHERE ID=?", (id,))
     record = cursor.fetchone()
     if record:
